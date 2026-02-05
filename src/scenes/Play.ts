@@ -1,18 +1,16 @@
-import { Scene } from 'phaser';
+import {CoreScene} from "../comps/CoreScene.ts";
 
-export class Game extends Scene
-{
+export class Play extends CoreScene {
     camera: Phaser.Cameras.Scene2D.Camera;
     background: Phaser.GameObjects.Image;
-    msg_text : Phaser.GameObjects.Text;
+    msg_text: Phaser.GameObjects.Text;
 
-    constructor ()
-    {
-        super('Game');
+    constructor() {
+        super('Play');
     }
 
-    create ()
-    {
+    create() {
+        this.game.score.addCoin();
         this.camera = this.cameras.main;
         this.camera.setBackgroundColor(0x00ff00);
 
@@ -27,9 +25,7 @@ export class Game extends Scene
         this.msg_text.setOrigin(0.5);
 
         this.input.once('pointerdown', () => {
-
-            this.scene.start('GameOver');
-
+            this.scene.start('End');
         });
     }
 }

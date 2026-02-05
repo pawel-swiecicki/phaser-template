@@ -8,8 +8,8 @@ import {End} from './scenes/End.ts';
 document.addEventListener('DOMContentLoaded', () => {
     new CoreGame({
         type: AUTO,
-        width: 1920,
-        height: 1080,
+        width: 1000,
+        height: 800,
         parent: 'game-container',
         backgroundColor: '#000000',
         autoCenter: Phaser.AUTO,

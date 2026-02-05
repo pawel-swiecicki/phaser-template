@@ -1,5 +1,6 @@
 import {GameObjects} from 'phaser';
 import {CoreScene} from "../comps/CoreScene.ts";
+import {TextButton} from "../comps/PushButton.ts";
 
 export class Home extends CoreScene {
     background: GameObjects.Image;
@@ -15,16 +16,14 @@ export class Home extends CoreScene {
 
         this.logo = this.add.image(512, 300, 'logo');
 
-        this.title = this.add.text(512, 460, 'Home Scene', {
-            fontFamily: 'Arial Black', fontSize: 38, color: '#ffffff',
-            stroke: '#000000', strokeThickness: 8,
-            align: 'center'
-        }).setOrigin(0.5);
-
-        this.input.once('pointerdown', () => {
-
-            this.scene.start('Play');
-
-        });
+        new TextButton({
+            scene: this,
+            x: this.cameras.main.width / 2,
+            y: this.cameras.main.height / 2,
+            text: 'PLAY',
+            onClick: () => {
+                this.scene.start('Play');
+            }
+        })
     }
 }

@@ -38,9 +38,6 @@ export class TextButton extends Phaser.GameObjects.Container {
         this.radius = cfg.radius ?? 45
         this.onClick = cfg.onClick
 
-        // const hw = this.widthBtn / 2
-        // const hh = this.heightBtn / 2
-
         this.hitZone = cfg.scene.add.zone(0, 0, this.widthBtn, this.heightBtn)
             .setOrigin(0.5)   // centrum!
             .setInteractive({ useHandCursor: true })
